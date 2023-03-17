@@ -1,0 +1,24 @@
+version: '3'
+services:
+  messaging-server-1:
+    image: arnkumar2403/messaging-server
+    container_name: "messaging-server-1"
+    restart: "no"
+    ports:
+      - 8380:8083
+    networks:
+      - docker-mysql-master-slave_overlay
+
+  messaging-server-2:
+    image: arnkumar2403/messaging-server
+    container_name: "messaging-server-2"
+    restart: "no"
+    ports:
+      - 8381:8083
+    networks:
+      - docker-mysql-master-slave_overlay
+
+networks:
+  docker-mysql-master-slave_overlay:
+    external: true
+

@@ -1,0 +1,24 @@
+version: '3'
+services:
+  deals_web_app_1:
+    image: arnkumar2403/deals_web_app
+    container_name: "deals_web_app_1"
+    restart: "no"
+    ports:
+      - 8180:8989
+    networks:
+      - docker-mysql-master-slave_overlay
+
+  deals_web_app_2:
+    image: arnkumar2403/deals_web_app
+    container_name: "deals_web_app_2"
+    restart: "no"
+    ports:
+      - 8181:8989
+    networks:
+      - docker-mysql-master-slave_overlay
+
+networks:
+  docker-mysql-master-slave_overlay:
+    external: true
+
